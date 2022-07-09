@@ -1,13 +1,13 @@
 import React from 'react';
 
-class CartItem extends React.Component {
-  render () {
-      const { price, title, qty } = this.props.product;
-      const {product, onIncreaseQuantity, onDecreaseQuantity, onDeleteQuantity } = this.props;
+const CartItem=(props)=>{
+  
+      const { price, title, qty } = props.product;
+      const {product, onIncreaseQuantity, onDecreaseQuantity, onDeleteQuantity } = props;
     return (
       <div className="cart-item">
         <div className="left-block">
-          <img style={styles.image}/>
+          <img style={styles.image} src={product.img} />
         </div>
         <div className="right-block">
           <div style={ { fontSize: 25 } }>{title}</div>
@@ -31,15 +31,15 @@ class CartItem extends React.Component {
             <img
               alt="delete"
               className="action-icons"
-                        src="https://cdn-icons.flaticon.com/png/512/3405/premium/3405244.png?token=exp=1656886023~hmac=9dcf6d40eacd739b755e4ef9a3d9b067"
-                        onClick={()=>onDeleteQuantity(product.id)}
+            src="https://cdn-icons.flaticon.com/png/512/3405/premium/3405244.png?token=exp=1656886023~hmac=9dcf6d40eacd739b755e4ef9a3d9b067"
+            onClick={()=>onDeleteQuantity(product.id)}
             />
           </div>
         </div>
       </div>
     );
   }
-}
+
 
 const styles = {
   image: {
